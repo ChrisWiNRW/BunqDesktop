@@ -48,12 +48,25 @@ app.on("ready", () => {
         USE_NATIVE_FRAME_STORED !== undefined &&
         USE_NATIVE_FRAME_STORED === true;
 
-    const mainWindow = createWindow("main", {
-        frame: USE_NATIVE_FRAME,
-        webPreferences: { webSecurity: false },
-        width: 1000,
-        height: 800
-    });
+    const mainWindow = createWindow(
+        "main",
+        {
+            frame: USE_NATIVE_FRAME,
+            webPreferences: { webSecurity: false },
+            width: 1000,
+            height: 800
+        },
+        {
+            templateUrl: `${__dirname}/images/512x512.png`,
+            delay: 0,
+            minVisible: 1500,
+            splashScreenOpts: {
+                width: 300,
+                height: 300,
+                transparent: true
+            }
+        }
+    );
 
     mainWindow.loadURL(
         url.format({
@@ -67,7 +80,10 @@ app.on("ready", () => {
     registerTouchBar(mainWindow);
 
     if (env.name === "development") {
-        mainWindow.openDevTools();
+        // on ready we show the devtools in case a splash screen is used
+        mainWindow.once("ready-to-show", () => {
+            mainWindow.openDevTools();
+        });
     } else {
         // remove the menu in production
         mainWindow.setMenu(null);

@@ -34,6 +34,10 @@
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@bunq-community/bunq-js-client/-/bunq-js-client-0.14.0.tgz#171058bb5f6d62225bed5c51544ccfc7e798778c"
 
+"@trodi/electron-splashscreen@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@trodi/electron-splashscreen/-/electron-splashscreen-0.3.0.tgz#12d9c2ad0af21fd4af380c4b590e5fc3f99fd807"
+
 "@types/axios@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@types/axios/-/axios-0.14.0.tgz#ec2300fbe7d7dddd7eb9d3abf87999964cafce46"
